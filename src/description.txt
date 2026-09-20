@@ -1,0 +1,24 @@
+[orange]Better Flares Headlight Visibility Add-ons
+
+[normal]An add-on for the Better Flares headlight mod. Keeps the DOT 7500K beam shape you already know, and boosts real road visibility in both daytime and nighttime driving.
+--------------------
+[red]Requires (load ABOVE these in Mod Manager):
+[normal]- Better Flares v4.7.3 Base
+[normal]- Better Flares v4.7.2 Headlights DOT 7500K
+--------------------
+[orange]What this changes:
+[normal]- Brighter low/hi/front/roof beam color (~1.35x)
+[normal]- Longer beam range: low beam +30%, hi/front beam +40%, roof beams +50%
+[normal]- Wider beam spread: +5 degrees on every beam stage
+[normal]- Stronger near-road glow directly in front of the truck, for better daytime visibility
+[normal]- Beam exposure bias raised slightly to help the beam stay visible against bright daylight
+--------------------
+[orange]What this does NOT change:
+[normal]- Beam shape/cutoff pattern (masks untouched)
+[normal]- Beam aim/rotation
+[normal]- AI traffic headlights
+--------------------
+[green]Changelogs
+
+[orange]v1.0.0
+[normal]- Initial public release: brightness, range, near-road glow, and beam-angle tuning over Better Flares DOT 7500K

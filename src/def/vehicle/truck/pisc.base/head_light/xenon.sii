@@ -1,0 +1,112 @@
+SiiNunit
+{
+accessory_head_lights_data : xenon.pisc.base.head_light
+{
+	name: "@@xenon@@"
+	price: 600
+	unlock: 0
+	icon: "lamp_xenon_01"
+	
+	reflectors_offset: (0.0, 1.0, -2.9)
+	reflectors_distance: 2.18
+	left_rot: (0.0, 0.0, 0.0)
+	right_rot: (0.0, 0.0, 0.0)
+	
+	low_beam_left_rot: (-2.1, 1.6, 0.0) # +up -down, +left -right, +counter clw -clw
+	low_beam_right_rot: (-2.0, -0.8, 1.0)
+	low_beam_color: (6.1911, 6.59205, 8.1)
+	low_beam_color_specular: (3.0915, 3.294, 4.05)
+	low_beam_color_ambient: (0.001242, 0.001323, 0.00162)
+	low_beam_bias: 0.15
+	low_beam_range: 130
+	low_beam_angle: 100
+	low_beam_aspect: 2.0
+	low_beam_refracted_color_fraction: 0.012
+	low_beam_refracted_offset_yz: (0.0, -0.6) # negative is further from truck
+	low_beam_refracted_pitch: -26.0
+	low_beam_refracted_bias: 0.0
+	low_beam_refracted_range: 5.2
+	low_beam_refracted_angle: 155.0
+	low_beam_refracted_aspect: 2.0
+	
+	hi_beam_left_rot: (-2.1, 1.6, 0.0)
+	hi_beam_right_rot: (-2.0, -0.8, 1.0)
+	hi_beam_color: (7.4304, 7.911, 9.72)
+	hi_beam_color_specular: (3.7125, 3.9555, 4.86)
+	hi_beam_color_ambient: (0.001485, 0.00158, 0.001944)
+	hi_beam_bias: 0.15
+	hi_beam_range: 280
+	hi_beam_angle: 100
+	hi_beam_aspect: 2.0
+	hi_beam_refracted_color_fraction: 0.012
+	hi_beam_refracted_offset_yz: (0.0, -0.6)
+	hi_beam_refracted_pitch: -26.0
+	hi_beam_refracted_bias: 0.0
+	hi_beam_refracted_range: 5.2
+	hi_beam_refracted_angle: 155.0
+	hi_beam_refracted_aspect: 2.0
+	
+	front_beam_left_rot: (-2.1, 1.6, 0.0)
+	front_beam_right_rot: (-2.0, -0.8, 1.0)
+	front_beam_color: (8.0487, 8.5698, 10.53)
+	front_beam_color_specular: (4.023, 4.2795, 5.265)
+	front_beam_color_ambient: (0.001607, 0.001715, 0.002106)
+	front_beam_bias: 0.15
+	front_beam_range: 280
+	front_beam_angle: 100
+	front_beam_aspect: 2.0
+	front_beam_refracted_color_fraction: 0.012
+	front_beam_refracted_offset_yz: (0.0, -0.6)
+	front_beam_refracted_pitch: -26.0
+	front_beam_refracted_bias: 0.0
+	front_beam_refracted_range: 5.2
+	front_beam_refracted_angle: 155.0
+	front_beam_refracted_aspect: 2.0
+	
+	roof_beam_left_rot: (-2.1, 1.6, 0.0)
+	roof_beam_right_rot: (-2.0, -0.8, 1.0)
+	roof_beam_color: (8.0487, 8.5698, 10.53)
+	roof_beam_color_specular: (4.023, 4.2795, 5.265)
+	roof_beam_color_ambient: (0.001607, 0.001715, 0.002106)
+	roof_beam_bias: 0.2
+	roof_beam_range: 360
+	roof_beam_angle: 100
+	roof_beam_aspect: 2.0
+	roof_beam_refracted_color_fraction: 0.012
+	roof_beam_refracted_offset_yz: (0.0, -0.6)
+	roof_beam_refracted_pitch: -26.0
+	roof_beam_refracted_bias: 0.0
+	roof_beam_refracted_range: 5.2
+	roof_beam_refracted_angle: 155.0
+	roof_beam_refracted_aspect: 2.0
+	
+	front_roof_beam_left_rot: (-2.1, 1.6, 0.0)
+	front_roof_beam_right_rot: (-2.0, -0.8, 1.0)
+	front_roof_beam_color: (8.66835, 9.22995, 11.34)
+	front_roof_beam_color_specular: (4.3335, 4.617, 5.67)
+	front_roof_beam_color_ambient: (0.001728, 0.00185, 0.002268)
+	front_roof_beam_bias: 0.2
+	front_roof_beam_range: 360
+	front_roof_beam_angle: 100
+	front_roof_beam_aspect: 2.0
+	front_roof_beam_refracted_color_fraction: 0.012
+	front_roof_beam_refracted_offset_yz: (0.0, -0.6)
+	front_roof_beam_refracted_pitch: -26.0
+	front_roof_beam_refracted_bias: 0.0
+	front_roof_beam_refracted_range: 5.2
+	front_roof_beam_refracted_angle: 155.0
+	front_roof_beam_refracted_aspect: 2.0
+	
+	low_beam_mask: "/material/custom/bf_trucklight_mask_norm_dot.tobj"
+	low_beam_refracted_mask: "/material/custom/bf_trucklight_mask_refracted.tobj"
+	hi_beam_mask: "/material/custom/bf_trucklight_mask_high_dot.tobj"
+	hi_beam_refracted_mask: "/material/custom/bf_trucklight_mask_refracted.tobj"
+	roof_beam_mask: "/material/custom/bf_trucklight_mask_roof.tobj"
+	roof_beam_refracted_mask: "/material/custom/bf_trucklight_mask_refracted.tobj"
+	front_beam_mask: "/material/custom/bf_trucklight_mask_front.tobj"
+	front_beam_refracted_mask: "/material/custom/bf_trucklight_mask_refracted.tobj"
+	front_roof_beam_mask: "/material/custom/bf_trucklight_mask_roofront.tobj"
+	front_roof_beam_refracted_mask: "/material/custom/bf_trucklight_mask_refracted.tobj"
+	no_parking_light: false
+}
+}
