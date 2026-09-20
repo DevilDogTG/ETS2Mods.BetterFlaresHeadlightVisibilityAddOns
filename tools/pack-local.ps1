@@ -3,17 +3,17 @@
     Packs src/ into a versioned .scs archive for local/manual installation.
 
 .DESCRIPTION
-    Wraps scs_packer's "create" command. Resolves the output archive's base name and
-    version either from tools/pack.config.json (if present) or, as a fallback, from
-    src/manifest.sii's display_name and package_version fields.
+    Wraps scs_packer's "create" command. The output archive's base name comes from
+    tools/pack.config.json (if present), falling back to src/manifest.sii's display_name.
+    The version always comes from src/manifest.sii's package_version - manifest.sii is the
+    single source of truth for version, never overridable via config.
 
-    pack.config.json shape (all fields optional):
+    pack.config.json shape (field optional):
         {
-          "packageName": "<slug used as the .scs base filename>",
-          "version": "<override, or null/omitted to use manifest.sii's package_version>"
+          "packageName": "<slug used as the .scs base filename>"
         }
-    A missing config file is equivalent to an empty one - both fields fall back to
-    manifest.sii.
+    A missing config file, or a missing/empty packageName, falls back to a slugified
+    display_name from manifest.sii.
 
 .PARAMETER Root
     Mod source folder to pack (must contain manifest.sii at its top level).
@@ -75,21 +75,15 @@ function Get-ManifestField([string]$Content, [string]$Field) {
 
 $ManifestContent = Get-Content -Raw -Path $ManifestPath
 
-# --- Resolve packageName / version: config.json first, manifest.sii fallback per-field ---
+# --- Resolve packageName: config.json first, manifest.sii fallback ---
 $Config = $null
 if (Test-Path $ConfigPathFull) {
     $Config = Get-Content -Raw -Path $ConfigPathFull | ConvertFrom-Json
 }
 
 $PackageName = $null
-$Version = $null
-if ($Config) {
-    if ($Config.PSObject.Properties.Name -contains "packageName" -and $Config.packageName) {
-        $PackageName = $Config.packageName
-    }
-    if ($Config.PSObject.Properties.Name -contains "version" -and $Config.version) {
-        $Version = $Config.version
-    }
+if ($Config -and ($Config.PSObject.Properties.Name -contains "packageName") -and $Config.packageName) {
+    $PackageName = $Config.packageName
 }
 
 if (-not $PackageName) {
@@ -101,12 +95,11 @@ if (-not $PackageName) {
     $PackageName = ConvertTo-Slug $DisplayName
 }
 
+# --- Resolve version: always from manifest.sii, never overridable via config ---
+$Version = Get-ManifestField $ManifestContent "package_version"
 if (-not $Version) {
-    $Version = Get-ManifestField $ManifestContent "package_version"
-    if (-not $Version) {
-        Write-Error "Could not resolve version: not set in $ConfigPath and no package_version in manifest.sii"
-        exit 1
-    }
+    Write-Error "Could not resolve version: no package_version in manifest.sii"
+    exit 1
 }
 
 # --- Pack ---
